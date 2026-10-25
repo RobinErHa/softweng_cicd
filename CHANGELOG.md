@@ -1,6 +1,6 @@
 # CHANGELOG.md
 
-## v0.0.1
+## v0.0.2
 Fixes:
  - None
 
