@@ -12,6 +12,10 @@
 #endif
 
 int main(void) {
+  gcov_test(1); /* exercise coverage test: Calc(1,2)->j=3, Test2 sets j=0, "j is zero!" */
+  gcov_test(0); /* exercise coverage test: Calc(0,0)->j=1, Test2 leaves it, "j is not zero!" */
+  gcov_test(-1); /* i<0: covers Calc's i>0-false path (else-if not taken) */
+  gcov_test(6); /* i=6, j=12: covers Calc's i>0-true but j<10-false path */
   PL_Init();
   vTaskStartScheduler();
 #if PL_CONFIG_USE_GCOV

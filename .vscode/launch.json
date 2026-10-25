@@ -6,11 +6,11 @@
             "type": "cortex-debug",
             "request": "launch",
             "servertype": "jlink",
-            "serverpath": "${env:PICO_JLINK_PATH}/JLinkGDBServerCL", // running on Windows Host
-            //"serverpath": "JLinkGDBServerCLExe", // Linux, inside container with host running JLinkRemoteServerCL, or for Linux host
-            //"serialNumber": "801048148", // connection by serial number
-            //"ipAddress": "tunnel:801048148", // connection through tunnel
-            //"ipAddress": "192.168.1.123", // connection to IP based (hardware) debug probe, e.g. J-Link Trace
+            "serverpath": "${env:PICO_JLINK_PATH}/JLinkGDBServerCLExe", // Linux: inside DevContainer or Linux host. Windows host: PICO_JLINK_PATH=C:\Program Files\SEGGER\JLink, binary JLinkGDBServerCL
+            //"ipAddress": "${env:PICO_SEGGER_IP}", // JLinkRemoteServerCL runs on the host (see devcontainer.env)
+            //"serialNumber": "801000354", // connection by serial number
+            "ipAddress": "tunnel:801000354", // connection through tunnel
+            //"ipAddress": "172.17.0.1", // connection to IP based (hardware) debug probe, e.g. J-Link Trace
             //"ipAddress": "192.168.65.254", // host.docker.internal address, JLinkRemoteServerCL runs on host
             "cwd": "${workspaceFolder}",
             "executable": "${command:cmake.launchTargetPath}",

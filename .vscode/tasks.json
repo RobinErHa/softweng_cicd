@@ -18,7 +18,7 @@
         {
             "type": "shell",
             "label": "gcovr",
-            "command": "gcovr --html-details -o ./gcovr/main.html",
+            "command": "./penv/bin/gcovr --html-details -o ./gcovr/main.html", // gcovr installed in penv venv, see README
             "options": {
                 "cwd": "${workspaceFolder}"
             },

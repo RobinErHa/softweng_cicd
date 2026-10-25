@@ -30,7 +30,7 @@ extern "C" {
 #define PL_CONFIG_USE_SEMIHOSTING       (0) /* if using semihosting for standard I/O. Note that SEGGER has issues with it? */
 #define PL_CONFIG_USE_RTT               (1) /* if using SEGGER RTT */
 #define PL_CONFIG_USE_SAMPLE            (1) /* sample example used for the scientific debugging part */
-#define PL_CONFIG_USE_GCOV              (0 && McuRdimon_CONFIG_IS_ENABLED) /* if using gcov */
+#define PL_CONFIG_USE_GCOV              (1 && McuRdimon_CONFIG_IS_ENABLED) /* if using gcov */
 
 /*!
  * \brief Module initialization

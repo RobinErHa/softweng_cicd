@@ -39,7 +39,7 @@ if (DEFINED ENV{PICO_SEGGER_IP})
   # For using an IP, start on the host 'JLinkRemoteServerCL' (no arguments needed) and use its IP
   # For using a tunnel, you have to run the server on thost, e.g.:
   # JLinkRemoteServerCL -UseTunnel -TunnelBySN -select="801048148"
-  set (JRUN_CTEST_COMMAND JRun --verbose --device RP2040_M0_0 --rtt -if SWD --pc off --sp off --ip "$ENV{PICO_SEGGER_IP}")
+  set (JRUN_CTEST_COMMAND JRun --verbose --device RP2040_M0_0 --rtt -if SWD --pc off --sp off --ip "tunnel:801000354")
 else()
   # Connect directly to the probe with USB
   set (JRUN_CTEST_COMMAND JRun --verbose --device RP2040_M0_0 --rtt -if SWD --pc off --sp off)

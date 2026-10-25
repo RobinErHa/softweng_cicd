@@ -11,10 +11,15 @@
 #include "McuUtility.h"
 #include "McuLED.h"
 #include "leds.h"
+#include "gcov_test.h"
 #include <stdio.h>
 
 static void AppTask(void *pv) {
   int count = 0;
+  gcov_test(1); /* exercise coverage test: Calc(1,2)->j=3, Test2 sets j=0, "j is zero!" */
+  gcov_test(0); /* exercise coverage test: Calc(0,0)->j=1, Test2 leaves it, "j is not zero!" */
+  gcov_test(-1); /* i<0: covers Calc's i>0-false path (else-if not taken) */
+  gcov_test(6); /* i=6, j=12: covers Calc's i>0-true but j<10-false path */
 #if PL_CONFIG_USE_PICO_W && PL_CONFIG_USE_LEDS
   Leds_InitFromTask(); /* needed for the on-board Pico-W LED */
 #endif

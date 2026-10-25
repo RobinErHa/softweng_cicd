@@ -11,6 +11,7 @@
         // For normal docker the line below is needed to access the host from the container.
         // For docker desktop, this is not needed.
     //  "--add-host=host.docker.internal:172.17.0.1"
+        "--add-host=host.docker.internal:host-gateway", // host-gateway resolves to the docker bridge gateway IP, needed for plain Docker on Linux (Docker Desktop sets host.docker.internal by default)
         "--env-file",".devcontainer/devcontainer.env" // load environment variables from file, needed for JRun to provide J-Link IP address
      ],
 
